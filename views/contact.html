@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | Samrudhi Agrigenetics</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="/images/logo.png" alt="Samrudhi Agrigenetics Logo" class="logo">
+            <ul id="nav-links" class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/diagnostic">AI Diagnostic</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+
+            <!-- Google Translate Button in Navigation Bar -->
+            <div id="translate-button">
+                <img id="translate-icon" src="https://img.icons8.com/ios-filled/50/000000/google-translate.png" alt="Translate">
+                <div id="google_translate_element"></div>
+            </div>
+
+
+            <!-- Burger Button -->
+            <div class="burger" id="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+    
+
+    <section class="contact">
+        <h1>Contact Us</h1>
+        <p>If you have any questions or need further information about our seeds and services, feel free to reach out to us!</p>
+        <form id="contact-form" class="contact-form">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+            <textarea name="message" placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+        
+        <div class="contact-details">
+            <p>Email: info@samrudhiagrigenetics.com</p>
+            <p>Phone: +1234567890</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Samrudhi Agrigenetics. All rights reserved.</p>
+    </footer>
+
+    <div id="google_translate_element"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,mr', // Add the languages you want to include
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    
+    <script src="/js/script.js"></script>
+    <script>
+
+const form = document.getElementById('contact-form');
+form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const formData = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        message: form.message.value.trim()
+    };
+
+    // Frontend validation to check for empty fields
+    if (!formData.name || !formData.email || !formData.message) {
+        alert("All fields are required.");
+        return;
+    }
+
+    try {
+        const response = await fetch('/send-message', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData)
+        });
+
+        if (response.ok) {
+            window.location.href = '/thankyou'; // Redirect to Thank You page
+        } else {
+            const errorResult = await response.json();
+            alert(errorResult.error || 'Failed to send message');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Failed to send message');
+    }
+});
+
+
+</script>
+</body>
+</html>

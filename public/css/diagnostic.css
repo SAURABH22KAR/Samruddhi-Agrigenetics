@@ -1,0 +1,396 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}                                                                                                              
+
+body {
+    background-color: #ffffff;
+    color: #333;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    border-radius: 10px;
+}
+
+
+/* Navigation */
+/* Header */
+header {
+    background-color: #3a5f3a;
+    padding: 10px 0; /* Reduce padding for a shorter height */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin-left: 10px;
+    padding: 0 20px;
+}
+
+/* Navigation Links */
+nav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    padding-left: 130px;
+}
+
+nav ul li {
+    margin-left: 20px; /* Adjust spacing between links */
+    padding: 10px; /* Reduce padding for shorter items */
+}
+
+nav ul li a {
+    color: #fff;
+    padding: 8px 16px; /* Reduce padding for link items */
+    background-color: #446644;
+    border-radius: 5px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    background-color: #2d4a2d;
+}
+
+
+nav ul li a:hover {
+    background-color: #2d4a2d;
+}
+
+.logo {
+    position: relative;
+    height: 70px;
+    float: left ;
+    margin-top: 0px;
+    margin-left: 190px;
+    border-radius: 10px;
+    
+
+}
+
+/* Google Translate Button */
+#translate-button {
+    display: flex;
+    align-items: center;
+}
+
+#translate-icon {
+    cursor: pointer;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+
+}
+
+#translate-button:hover #translate-icon {
+    transform: rotate(360deg);
+}
+
+#google_translate_element {
+    position: absolute;
+    top: 80%;
+    right: 90px;
+    
+    width: 100px;
+    display: none;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.158);
+    border-radius: 8px;
+    margin-left: -35px;
+}
+
+#translate-button:hover #google_translate_element {
+    display: block;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Burger Button */
+.burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+    z-index: 1001;
+}
+
+.burger div {
+    width: 25px;
+    height: 3px;
+    background-color: #fff;
+    border-radius: 3px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Active state for burger button */
+.burger.active .line1 {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger.active .line2 {
+    opacity: 0;
+}
+
+.burger.active .line3 {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+
+
+/* Hero Section */
+.hero {
+    background-image: url('/images/agriculture-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 3em;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+
+.hero .cta {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 15px 30px;
+    background-color: #3a5f3a;
+    border-radius: 10px;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.hero .cta:hover {
+    background-color: #2d4a2d;
+}
+
+/* Main Content */
+main {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.camera-section, .upload-section {
+    margin: 20px 0;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #3a5f3a;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+}
+
+.btn:hover {
+    background-color: #2d4a2d;
+}
+
+#camera-stream {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 2px solid #446644;
+    border-radius: 10px;
+    margin-top: 15px;
+}
+
+#upload-image {
+    margin-top: 20px;
+}
+
+#result {
+    background-color: #eef6ee;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+#result h2 {
+    color: #3a5f3a;
+}
+
+#result p {
+    font-size: 16px;
+    color: #333;
+}
+
+/* Footer */
+footer {
+    background-color: #3a5f3a;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Burger Button Styling */
+.burger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+    z-index: 1001;
+}
+
+@media (max-width: 768px) {
+    /* Show burger on mobile */
+    .burger {
+        display: flex;
+    }
+
+    .burger div {
+        width: 25px;
+        height: 3px;
+        background-color: #333;
+        border-radius: 3px;
+        transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    /* Burger animation for open state */
+    .burger.active .line1 {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .burger.active .line2 {
+        opacity: 0;
+    }
+
+    .burger.active .line3 {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+
+    /* Hide nav-links by default */
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        position: absolute;
+        top: 90px; /* Positioned below header */
+        right: 0px;
+        width: 50%;
+        height: 60vh;
+        background-color: #ffffff;
+        border-radius: 10px;
+        
+    }
+
+    /* Show nav-links when active */
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 20px 0;
+        margin-left: -120px;
+    }
+
+    .nav-links a {
+        font-size: 1.2em;
+        color: #333;
+        text-decoration: none;
+        padding: 10px 20px;
+    }
+
+    .logo {
+        position: relative;
+        height: 70px;
+        float: left ;
+        margin-top: 0px;
+        margin-left: 20px;
+        border-radius: 10px;
+        
+    
+    }
+
+    #google_translate_element {
+        
+        justify-content: center;
+        margin-left: -130px
+       
+    }
+
+    
+}
+
+    /* Adjust translate button for center alignment */
+    #translate-button {
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+    }
+
+    #google_translate_element {
+        position: absolute;
+        top: 100%;
+        left: 88%;
+        margin-top: -9px;
+        transform: translateX(-50%);
+    }
+
+    
+
+    /* Button and camera styling adjustments */
+    .btn, #camera-stream, #upload-image {
+        width: 100%;
+    }
+
+
+
+
+    @media (max-width: 768px) {
+        body {
+            font-size: 12px;
+        }
+    
+        .hero h1 {
+            font-size: 2em;
+        }
+    
+        .hero p {
+            font-size: 1em;
+        }
+    
+        .hero .cta {
+            font-size: 1em;
+            padding: 10px 20px;
+        }
+    }    

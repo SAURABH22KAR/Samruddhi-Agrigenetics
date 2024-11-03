@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Plant Disease Diagnostic</title>
+    <link rel="stylesheet" href="/css/diagnostic.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <img src="/images/logo.png" alt="Samrudhi Agrigenetics Logo" class="logo">
+        </div>
+        <nav>
+            <ul id="nav-links" class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/products">Products</a></li>
+                <li><a href="/diagnostic">AI Diagnostic</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+
+            <!-- Google Translate Button in Navigation Bar -->
+            <div id="translate-button">
+                <img id="translate-icon" src="https://img.icons8.com/ios-filled/50/000000/google-translate.png" alt="Translate">
+                <div id="google_translate_element"></div>
+            </div>
+
+
+            <!-- Burger Button -->
+            <div class="burger" id="burger">
+                <div class="line1"></div>
+                <div class="line2"></div>
+                <div class="line3"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <h1>AI Plant Disease Diagnostic</h1>
+        <p>Use your camera or upload an image to diagnose crop diseases.</p>
+
+        <div class="camera-section">
+            <button id="open-camera" class="btn">Open Camera</button>
+            <video id="camera-stream" autoplay playsinline></video>
+            <button id="capture-button" class="btn">Capture</button>
+            <canvas id="camera-canvas" style="display:none;"></canvas>
+        </div>
+
+        <div class="upload-section">
+            <input type="file" accept="image/*" id="upload-image">
+            <button id="analyze-button" class="btn">Analyze</button>
+        </div>
+
+        <div id="result">
+            <h2>Diagnosis Result</h2>
+            <p id="disease"></p>
+            <p id="recommendation"></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Samrudhi Agrigenetics. All rights reserved.</p>
+    </footer>
+    <div id="google_translate_element"></div>
+<script type="text/javascript">
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+      pageLanguage: 'en',
+      includedLanguages: 'en,hi,mr', // Add the languages you want to include
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+    }, 'google_translate_element');
+  }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<script src="/js/script.js"></script>
+<script src="/js/diagnostic.js"></script>
+
+
+
+</body>
+</html> 
