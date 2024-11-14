@@ -12,24 +12,16 @@ let stream;
 openCameraBtn.addEventListener('click', async () => {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         try {
-            // Request the back camera by setting the facingMode to "environment"
+            // Request the back-facing camera
             stream = await navigator.mediaDevices.getUserMedia({
-                video: { facingMode: { exact: "environment" } }
+                video: { facingMode: { exact: "environment" } } // Back camera
             });
             cameraStream.srcObject = stream;
             cameraStream.style.display = 'block';
             captureButton.style.display = 'block';
         } catch (err) {
             console.error('Error accessing the back camera: ', err);
-            // Fallback to the default camera if back camera is unavailable
-            try {
-                stream = await navigator.mediaDevices.getUserMedia({ video: true });
-                cameraStream.srcObject = stream;
-                cameraStream.style.display = 'block';
-                captureButton.style.display = 'block';
-            } catch (fallbackError) {
-                console.error('Fallback to default camera failed:', fallbackError);
-            }
+            alert('Unable to access the back camera.');
         }
     } else {
         alert('Camera not supported');
