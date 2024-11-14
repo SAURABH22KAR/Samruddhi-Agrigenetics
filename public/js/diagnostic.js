@@ -1,27 +1,35 @@
 // Elements
 const cameraStream = document.getElementById('camera-stream');
-const aiAnimationOverlay = document.getElementById('ai-animation-overlay'); // Overlay for AI animation
 const cameraCanvas = document.getElementById('camera-canvas');
 const openCameraBtn = document.getElementById('open-camera');
 const captureButton = document.getElementById('capture-button');
 const analyzeButton = document.getElementById('analyze-button');
 const uploadInput = document.getElementById('upload-image');
 
+// Open the camera
 let stream;
 
 openCameraBtn.addEventListener('click', async () => {
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
         try {
+            // Request the back camera by setting the facingMode to "environment"
             stream = await navigator.mediaDevices.getUserMedia({
                 video: { facingMode: { exact: "environment" } }
             });
             cameraStream.srcObject = stream;
             cameraStream.style.display = 'block';
-            aiAnimationOverlay.style.display = 'block';  // Show animation overlay
             captureButton.style.display = 'block';
         } catch (err) {
-            console.error('Error accessing the camera: ', err);
-            aiAnimationOverlay.style.display = 'none';  // Hide overlay if camera access fails
+            console.error('Error accessing the back camera: ', err);
+            // Fallback to the default camera if back camera is unavailable
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({ video: true });
+                cameraStream.srcObject = stream;
+                cameraStream.style.display = 'block';
+                captureButton.style.display = 'block';
+            } catch (fallbackError) {
+                console.error('Fallback to default camera failed:', fallbackError);
+            }
         }
     } else {
         alert('Camera not supported');
@@ -35,12 +43,13 @@ captureButton.addEventListener('click', () => {
     cameraCanvas.height = cameraStream.videoHeight;
     context.drawImage(cameraStream, 0, 0);
     const imageData = cameraCanvas.toDataURL('image/png');
-    analyzeImage(imageData);
+    analyzeImage(imageData);  // Analyze the captured image
 
     // Stop the camera stream after capturing
     stopCamera();
 });
 
+// Stop the camera when navigating away
 window.addEventListener('beforeunload', () => {
     stopCamera();
 });
@@ -50,11 +59,10 @@ function stopCamera() {
         stream.getTracks().forEach(track => track.stop());
         cameraStream.style.display = 'none';
         captureButton.style.display = 'none';
-        aiAnimationOverlay.style.display = 'none'; // Hide animation overlay when camera stops
     }
 }
 
-// Analyze image from camera or upload
+// Analyze image either from camera or upload
 function analyzeImage(imageData) {
     fetch('/api/analyze', {
         method: 'POST',
@@ -71,6 +79,7 @@ function analyzeImage(imageData) {
     .catch(err => console.error('Error analyzing image: ', err));
 }
 
+// Analyze uploaded image
 uploadInput.addEventListener('change', (e) => {
     const reader = new FileReader();
     reader.onload = function(event) {
