@@ -455,3 +455,60 @@ footer {
         animation-duration: 1.2s;
     }
 }
+
+
+
+
+
+
+
+
+/* AI Animation Overlay */
+#ai-animation-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none; /* Hidden initially */
+    background-color: rgba(0, 0, 0, 0.2); /* Transparent overlay */
+    z-index: 10;
+    pointer-events: none; /* Allows interaction with elements below */
+}
+
+#ai-animation-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 2px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8);
+    animation: scanning 2s linear infinite;
+}
+
+/* Pulsing border around camera view */
+#camera-stream {
+    border: 4px solid rgba(58, 95, 58, 0.5); /* Slightly translucent border */
+    border-radius: 8px;
+    animation: pulse-border 1.5s infinite;
+}
+
+@keyframes pulse-border {
+    0%, 100% {
+        border-color: rgba(58, 95, 58, 0.5);
+    }
+    50% {
+        border-color: rgba(255, 255, 255, 0.8);
+    }
+}
+
+/* Scanning line animation */
+@keyframes scanning {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+}
