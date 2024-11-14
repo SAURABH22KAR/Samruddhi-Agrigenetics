@@ -15,3 +15,27 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const animatedSections = document.querySelectorAll(".animated");
+
+    const animateOnScroll = () => {
+        animatedSections.forEach(section => {
+            const rect = section.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            // Check if section is in view
+            if (rect.top < windowHeight - 100) {
+                section.classList.add("fade-in");
+            }
+        });
+    };
+
+    window.addEventListener("scroll", animateOnScroll);
+    animateOnScroll();
+});
+
+

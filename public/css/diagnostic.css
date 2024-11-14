@@ -250,16 +250,8 @@ main {
     color: #333;
 }
 
-/* Footer */
-footer {
-    background-color: #3a5f3a;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
+
+
 
 /* Burger Button Styling */
 .burger {
@@ -394,3 +386,72 @@ footer {
             padding: 10px 20px;
         }
     }    
+
+
+
+
+
+
+
+/* Global Footer Styles */
+footer {
+    text-align: center;
+    background-color: #3a5f3a; /* Consistent dark green color */
+    color: #fff;               /* White text color */
+    padding: 20px;             /* Ample padding for readability */
+    position: sticky;          /* Sticks to bottom if content is short */
+    bottom: 0;
+    width: 100%;
+    font-size: 1em;            /* Responsive text size */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Adjustments for Larger Screens */
+@media (min-width: 768px) {
+    footer {
+        font-size: 1.1em;      /* Slightly larger text for desktop */
+        padding: 30px;         /* Increased padding for spacious layout */
+    }
+}
+
+
+
+
+
+
+
+/* Diagnostic.css */
+
+/* Keyframes for Fade-In Animation */
+@keyframes fadeInDiag {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Slight shift for fade-in effect */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Diagnostic Animation Styles */
+.diagnostic-section, .diagnostic h1, .diagnostic-content {
+    animation: fadeInDiag 1s ease-in-out forwards;
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Initial shift for smooth fade-in */
+}
+
+/* Responsive Animation Adjustments */
+@media (max-width: 768px) {
+    .diagnostic-section, .diagnostic h1, .diagnostic-content {
+        animation-duration: 0.8s; /* Faster animations on smaller screens */
+        animation-timing-function: ease-out;
+    }
+}
+
+@media (min-width: 769px) {
+    .diagnostic-section, .diagnostic h1, .diagnostic-content {
+        animation-delay: 0.2s; /* Small delay for larger screens */
+        animation-duration: 1.2s;
+    }
+}

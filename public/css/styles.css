@@ -189,16 +189,9 @@ nav ul li a:hover {
     margin-top: 10px;
 }
 
-/* Footer */
-footer {
-    text-align: center;
-    background-color: #3a5f3a;
-    color: #fff;
-    padding: 20px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
+
+
+
 
 /* About Page */
 .about {
@@ -223,6 +216,10 @@ footer {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
+
+
+
+
 /* Product Page */
 .products {
     max-width: 1200px;
@@ -233,7 +230,7 @@ footer {
 .products h1 {
     text-align: center;
     color: #446644;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
 }
 
 #product-list {
@@ -244,12 +241,13 @@ footer {
 
 .product {
     border: 1px solid #ddd;
-    padding: 20px;
+    padding: 60px;
     margin: 10px;
     text-align: center;
-    border-radius: 5px;
+    border-radius: 10px;
     background-color: #fff;
     transition: transform 0.3s ease-in-out;
+    margin-bottom: 100px;
 }
 
 .product:hover {
@@ -258,7 +256,7 @@ footer {
 
 .product img {
     max-width: 150px;
-    margin-bottom: 10px;
+    margin-bottom: 70px;
 }
 
 .product h3 {
@@ -270,6 +268,21 @@ footer {
     margin: 10px 0;
     color: #666;
 }
+
+.product-footer {
+    text-align: center;
+    background-color: #3a5f3a; /* Consistent dark green color */
+    color: #fff;               /* White text color */
+    padding: 30px;             /* Ample padding for readability */
+    position: sticky;          /* Sticks to bottom if content is short */
+    bottom: 0;
+    width: 136%;
+    margin-left: -16%;
+    font-size: 1em;            /* Responsive text size */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+ 
 
 /* Contact Page */
 .contact {
@@ -315,10 +328,7 @@ footer {
     color: #666;
 }
 
-/* Animations */
-.hero, .products h1, .contact h1, .about h1 {
-    animation: fadeIn 1s ease-in-out;
-}
+
 
 
 
@@ -433,134 +443,8 @@ footer {
 }
 
 
-/* Camera and Upload Sections */
-main {
-    padding: 50px 20px;
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-    
-}
-
-.camera-section, .upload-section {
-    margin: 20px 0;
-}
-
-.btn {
-    padding: 10px 20px;
-    background-color: #3a5f3a;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-.btn:hover {
-    background-color: #2d4a2d;
-}
-
-#camera-stream {
-    display: block;
-    width: 100%;
-    height: auto;
-    border: 2px solid #446644;
-    border-radius: 10px;
-    margin-top: 15px;
-}
-
-#upload-image {
-    margin-top: 20px;
-}
-
-#result {
-    background-color: #eef6ee;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin-top: 20px;
-    text-align: left;
-}
-
-#result h2 {
-    color: #3a5f3a;
-}
-
-#result p {
-    font-size: 16px;
-    color: #333;
-}
 
 
-/* Footer */
-footer {
-    background-color: #3a5f3a;
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-}
-
-
-
-/* Responsive Styles for Diagnostic Page */
-@media (max-width: 768px) {
-    main {
-        padding: 20px 10px;
-        text-align: center;
-    }
-
-    
-
-    .camera-section, .upload-section {
-        margin: 15px 0;
-    }
-
-    .btn {
-        padding: 12px 15px;
-        font-size: 14px;
-        width: 100%; /* Full width for easier tapping */
-        max-width: 100%;
-    }
-
-    #camera-stream {
-        width: 100%;
-        max-width: 100%;
-        height: auto;
-        border-radius: 8px;
-        margin-top: 10px;
-    }
-
-    #upload-image {
-        margin-top: 10px;
-        width: 100%; /* Full width for better accessibility */
-    }
-
-    #result {
-        padding: 15px;
-        font-size: 14px;
-    }
-
-    #result h2 {
-        font-size: 18px;
-    }
-
-    #result p {
-        font-size: 14px;
-    }
-
-    
-}
 
 
 
@@ -594,6 +478,57 @@ footer {
 
 }
 
+
+
+
+
+
+
+
+/* Keyframes for Fade-In Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Small upward shift for the fade-in effect */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* General Animation */
+.hero, .products h1, .contact h1, .about h1 {
+    animation: fadeIn 1s ease-in-out forwards;
+    opacity: 0; /* Start hidden */
+    transform: translateY(20px); /* Adjust for smooth animation */
+}
+
+
+
+
+
+
+/* Global Footer Styles */
+footer {
+    text-align: center;
+    background-color: #3a5f3a; /* Consistent dark green color */
+    color: #fff;               /* White text color */
+    padding: 20px;             /* Ample padding for readability */
+    position: sticky;          /* Sticks to bottom if content is short */
+    bottom: 0;
+    width: 100%;
+    font-size: 1em;            /* Responsive text size */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Adjustments for Larger Screens */
+@media (min-width: 768px) {
+    footer {
+        font-size: 1.1em;      /* Slightly larger text for desktop */
+        padding: 30px;         /* Increased padding for spacious layout */
+    }
+}
 
 
 
